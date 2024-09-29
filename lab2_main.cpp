@@ -4,10 +4,8 @@
 #include <functional>
 #include <algorithm>
 #include <cstring>
-#include "lab3_funcs.h"
+#include "lab2_funcs.h"
 using namespace std;
-
-
 
 
 
@@ -29,7 +27,7 @@ bool TestSortingWholeList(std::function<void (vector<int>&)> sort_func);
 bool TestSortingSubList(std::function<void (vector<int>&, int, int)> sort_func);
 
 //Test TimSort using randomly generated vectors of varying lengths
-int TestTimSort();
+int TestHybridSort();
 
 int main(int argc, char ** argv)
 {
@@ -37,26 +35,22 @@ int main(int argc, char ** argv)
   bool passed=true;
 
   if (argc!=2) {
-     cout <<"Usage: ./lab3.exe  sorting_alg \n";
+     cout <<"Usage: ./lab2.exe  sorting_alg \n";
      return 1;
   }
 
   cout <<"Testing "<<argv[1] <<" with builtin testcases"<<endl;
 
-  if (!strcmp(argv[1], "bubblesort")){
-  	    cout <<"Testing bubble sort \n";
-  	   passed = TestSortingWholeList(BubbleSort);
-
-  } else if (!strcmp(argv[1], "mergesort")){
+   if (!strcmp(argv[1], "mergesort")){
         cout <<"Testing Mergesort \n";
   	    passed =  TestSortingWholeList(MergeSort);
   } else if (!strcmp(argv[1], "quicksort")){
           cout <<"Testing quicksort \n";
   	      //passed = TestSortingWholeList(QuickSort);
           passed = TestSortingSubList(QuickSort);
-  } else if (!strcmp(argv[1], "timsort")){
-          cout <<"Testing Timsort\n";
-          passed = TestTimSort ();
+  } else if (!strcmp(argv[1], "hybridsort")){
+          cout <<"Testing hybridsort\n";
+          passed = TestHybridSort ();
 
   }
 
@@ -219,20 +213,20 @@ int Test (vector<int> a, vector<int> output, std::function<void (vector<int>&, i
 }
 
 
-//Test TimSort using randomly generated vectors of varying lengths
-int TestTimSort()
+//Test HybridSort using randomly generated vectors of varying lengths
+int TestHybridSort()
 {
 
-	vector<int> input = GenerateRandomVector (20);
+  vector<int> input = GenerateRandomVector (20);
   cout <<"Input:";
   PrintVector (input);
 
   vector<int> correct_output = input;
-	sort (correct_output.begin(),correct_output.end());
+  sort (correct_output.begin(),correct_output.end());
   cout <<"Correct output";
   PrintVector(correct_output);
 
-  TimSort (input, 5);
+  HybridSort (input, 5);
   if (input!=correct_output)
   {
     cout <<"Failed n=20 test case\n";
@@ -244,9 +238,9 @@ int TestTimSort()
   PrintVector (input);
 
   correct_output = input;
-	sort (correct_output.begin(),correct_output.end());
+  sort (correct_output.begin(),correct_output.end());
 
-  TimSort (input, 50);
+  HybridSort (input, 50);
   if (input!=correct_output)
   {
     cout <<"Failed n=400 test case\n";
@@ -260,7 +254,7 @@ int TestTimSort()
   correct_output = input;
   sort (correct_output.begin(),correct_output.end());
 
-  TimSort (input, 100);
+  HybridSort (input, 100);
   if (input!=correct_output)
   {
     cout <<"Failed n=800 test case\n";
