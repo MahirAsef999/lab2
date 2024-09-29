@@ -2,8 +2,8 @@
 
 ## Goal:
 
-- Implement Merge Sort, Quick Sort, K-Way Merging, and a simplified version of TimSort 
-- Team work allowed (up to 2 students per group). 
+- Implement Merge Sort, QuickSort, K-Way Merging, and a hybrid sorting algorithm.
+- Get familiar with using C++ STL vector.
 
 ## Starter Code: 
 
