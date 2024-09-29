@@ -55,7 +55,7 @@ void Merge (const vector<int> & list1, const vector<int> & list2, vector<int> & 
 */
 void MergeSort (vector<int> & L)
 {
- //Note: You will use the MergeSorted function implemented above
+ //Note: You will use the MergeSort function implemented above
 }
 
 /* Sort list[first...last] into ascending order */
@@ -97,7 +97,7 @@ void TimSort (vector<int> & list, int run_length)
        //vector<int> sublist (list.begin(), list.begin()+100); //this will copy list[0…99] to sublist
        //vector<int> sublist2 (list.begin()+100, list.begin()+200); //this will copy list[100…199] to sublist2
 
-       // call selection or other sorting algorithm to sort each segment/run of list into sorted order.
+       // call QuickSort to sort each segment/run of list into sorted order.
 
 
        //Call KWayMerge (either version) to merge listOfRuns back to the original list
