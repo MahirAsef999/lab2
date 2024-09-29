@@ -7,40 +7,36 @@
 
 ## Starter Code: 
 
-If you have installed command **git**, from your terminal (mac or WSL/Ubunto) window, you can use the following command to download it:
-```
-git clone https://github.com/CISC4080/coinchange_lab.git
-```
-Otherwise, you can download the starter code as a zip file. 
+Download the starter code as a zip file and unzip it to get the whole directory of starter code. 
 
 
 ## Program Execution:
 
 The following example illustrates how your programs should work:
-1. Compile and link lab3_funcs.cpp (which implements the required sorting functions and merging functions), lab1_funcs.cpp, and lab3_main.cpp (which run test cases on these functions) to get a lab3.exe file. 
+1. Compile and link lab2_funcs.cpp (which implements the required sorting functions and merging functions) and lab3_main.cpp (which run test cases on these functions) to get a lab2.exe file. 
 ```
-$ g++ -std=c++11 lab1_funcs.cpp lab3_funcs.cpp lab3_main.cpp -o lab3.exe 
+$ g++ -std=c++11  lab2_funcs.cpp lab2_main.cpp -o lab2.exe 
 ```
 
   Or you can simply type 
 ```
-$ make lab3.exe
+$ make lab2.exe
 ```
 
 2.  The executable lab3.exe takes one command line argument:
 
 ```
-   $ ./lab3.exe sorting_alg
+   $ ./lab2.exe sorting_alg
 ```
     It tests the given sorting algorithm using a sequence of test cases given in lab3_main.cpp. 
 ```
- $ ./lab3.exe mergesort 
+ $ ./lab2.exe mergesort 
    Testing MergeSort using built-in test cases 
    …
 ```
  
 
-## Details: Implement the following functions in lab3_funcs.cpp: 
+## Details: Implement the following functions in lab2_funcs.cpp: 
 
 1. (Two-way) Merge function.
 
@@ -58,7 +54,7 @@ void MergeSort(vector<int> & L)
 After you have implement this function, test this function  by compile your program and run the following command:
 
 ```
-$ ./lab3.exe mergesort
+$ ./lab2.exe mergesort
 ```
    Testing MergeSort using built-in test cases 
     …
@@ -77,29 +73,18 @@ void QuickSort(vector<int> & list, int left, int right)
   */
 void KWayMerge_BF (vector<vector<int>> listOfLists, vector<int> & output)  
 {
-  //Hint: 
- //Brute-and-force method: Below Merge() is the two-way merge function 
-            k=listOfLists.size();  
-            vector<int> currentList = listOfLists[0] //copy first list to currentList 
-             for i=1 to k - 1
-                   Merge (listOfLists[i], currentList, output) 
-                              //merge i-th list with currentList into output 
-                   
-                   if (i!=k-1) 
-                       //prepare for next iteration 
-                       currentList = output   //now output is my currentList 
   
-   } 
+} 
 
   
 void KWayMerge_DAC (vector<vector<int>> listOfLists, vector<int> & output)
-//To be discussed in class 
+ 
 ```
 
-5. Implement an simplified TimSort
+5. Implement a hybrid sorting algorithm 
 ```
-/* Sort the given list using simplified TimSort 
-  First using insertion sort or other sorting algorithm to generate sorted sublists, each of #run_length 
+/* Sort the given list with a hybrid sorting algorithm 
+  First using quicksort to generate sorted sublists, each of #run_length 
   Then use KWayMerge function to merge these sorted sublists into one sorted list */
 void TimSort (vector<int> & list, int run_length)
 {
@@ -119,16 +104,16 @@ void TimSort (vector<int> & list, int run_length)
         //Call KWayMerge to merge listOfRuns into one sorted list, write output to back to lis
 } 
 ```
-To test TimSort, compile the whole program and then run the following command:
+To test HybridSort, compile the whole program and then run the following command:
 ```
-$ ./lab3.exe timsort 
+$ ./lab2.exe hybridsort 
 ```
 This will run three test cases, n=20, n=400, n=800 (where run length is set to 5, 50, and 100 respectively). 
 
 
 ## What to submit
-  Please submit your lab3_funcs.cpp by deadline to the following submission page: 
+  Please submit your lab2_funcs.cpp by deadline to the following submission page: 
 
-https://storm.cis.fordham.edu:8443/web/project/182?current_tab=submit
+TBA. 
 
 
