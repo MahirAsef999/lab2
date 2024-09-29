@@ -81,24 +81,26 @@ void KWayMerge_DAC (vector<vector<int>> listOfLists, vector<int> & result)
 
 }
 
-/* Sort the given list using simplified TimSort
-  First using insertion sort or other sorting algorithm to generate sorted sublists, each of #run_length
+/* Sort the given list using simplified HybridSort
+  First use QuickSort algorithm to generate sorted sublists, each of #segment_length
   Then use KWayMerge function to merge these sorted sublists into one sorted list */
-void TimSort (vector<int> & list, int run_length)
+void HybridSort (vector<int> & list, int segment_length)
 {
        vector<vector<int>> listOfRuns;
 
-       //For example, if run_length is 100, copy each of the following sublists (i.e., run)
-      //  list[0…99], list[100…199], list[200…299], … list[len/100*100… len-1] into a seperate new/shorter vector,
-      //  and push these vectors into listOfRuns
+        // Break input list into multiple sublists each of length given by run_length
+        // Call Quicksort to sort each segment of the input list into order  
+        // For example, if segment_length is 100, then in this step, we sort
+        //    list[0…99], list[100…199], list[200…299], … list[len/100*100… len-1] into
+        //  ascending order.
 
-       //Note: you can refer to this post about how to extract a subvector:
-       //https://stackoverflow.com/questions/421573/best-way-to-extract-a-subvector-from-a-vector
-       //vector<int> sublist (list.begin(), list.begin()+100); //this will copy list[0…99] to sublist
-       //vector<int> sublist2 (list.begin()+100, list.begin()+200); //this will copy list[100…199] to sublist2
+        // Copy out each segment into a new vector, push the vector into listOfRuns 
 
-       // call QuickSort to sort each segment/run of list into sorted order.
+        //Note: you can refer to this post about how to extract a subvector: 
+        //https://stackoverflow.com/questions/421573/best-way-to-extract-a-subvector-from-a-vector
+       //vector<int> sublist (list.begin(), list.begin()+100); //this will copy list[0…99] to sublist 
+        //vector<int> sublist2 (list.begin()+100, list.begin()+200); //this will copy list[100…199] to sublist2 
 
 
-       //Call KWayMerge (either version) to merge listOfRuns back to the original list
+        //Call KWayMerge to merge listOfRuns into one sorted list, write output to back to list
 }
