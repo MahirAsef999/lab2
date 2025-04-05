@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <functional>
-#include "lab3_funcs.h"
+#include "lab2_funcs.h"
 using namespace std;
 
 // Read int from standard input until -1 is reached, return the values in a vector
